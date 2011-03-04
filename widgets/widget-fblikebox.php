@@ -57,8 +57,9 @@ class ProGo_Widget_FBLikeBox extends WP_Widget {
 		}
 		
 		echo $before_widget;
+		echo $before_title . $title . $after_title;
 		
-		echo '<div><iframe src="http://www.facebook.com/plugins/likebox.php?href='. esc_url($url) .'&amp;width='. $width .'&amp;colorscheme='. $color .'&amp;show_faces='. $faces .'&amp;stream='. $stream .'&amp;header='. $header .'&amp;height='. $height .'" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:'. $width .'px; height:'. $height .'px;" allowTransparency="true"></iframe>';
+		echo '<div class="fblikebox" style="display:block;overflow:hidden;width:'. ($width-12) .'px;height:'. ($height-31) .'px"><iframe src="http://www.facebook.com/plugins/likebox.php?href='. esc_url($url) .'&amp;width='. $width .'&amp;colorscheme='. $color .'&amp;show_faces='. $faces .'&amp;stream='. $stream .'&amp;header='. $header .'&amp;height='. $height .'" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:'. $width .'px; height:'. ($height-25) .'px;margin:-10px -1px 0" allowTransparency="true"></iframe></div>';
 		
 		echo $after_widget;
 	}

@@ -14,7 +14,14 @@
  * then the sidebar simply doesn't exist, so we'll hard-code in
  * some default sidebar stuff just in case.
  */
+if( is_page(21) ) {
+if ( ! dynamic_sidebar( 'contact' ) ) : ?>
+<p>by default we want some widgets to show up...</p>
+<?php endif; // end primary widget area
+} else {
 if ( ! dynamic_sidebar( 'sidebar' ) ) : ?>
 <p>by default we want some widgets to show up...</p>
-<?php endif; // end primary widget area ?>
+<?php endif; // end primary widget area
+}
+?>
 </div>

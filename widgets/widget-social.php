@@ -54,8 +54,7 @@ class ProGo_Widget_Social extends WP_Widget {
 		$rss = $instance['rss'] == 'yes' ? 'yes' : 'no';
 		
 		echo $before_widget;
-		if ( $title )
-			echo $before_title . $title . $after_title;
+		echo $before_title . $title . $after_title;
 		
 		$items = array();
 		if ( $facebook != '' ) {

@@ -40,8 +40,7 @@ class ProGo_Widget_Tweets extends WP_Widget {
 		$text = strip_tags($instance['follow']);
 		
 		echo $before_widget;
-		if ( $title )
-			echo $before_title . $title . $after_title;
+		echo $before_title . $title . $after_title;
 		
 		if ( ( $twitter != '' ) && ( $num > 0 ) ) { ?>
         <div class="tweets">

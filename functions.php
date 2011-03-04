@@ -46,7 +46,7 @@ function progo_setup() {
 	
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'post-thumbnail', 83, 83, true );
+	add_image_size( 'post-thumbnail', 81, 81, true );
 	add_image_size( 'medium', 237, 237, true );
 	
 	// add custom actions
@@ -63,6 +63,7 @@ function progo_setup() {
 	add_filter( 'default_content', 'progo_set_default_body' );
 	add_filter( 'site_transient_update_themes', 'progo_update_check' );
 	add_filter( 'wpsc_pre_transaction_results', 'progo_prepare_transaction_results' );
+	add_filter('body_class','progo_bodyclasses');
 	
 	if ( !is_admin() ) {
 		// brick it if not activated
@@ -406,8 +407,17 @@ function progo_bookit_widgets() {
 		'before_title' => '<h3 class="title">',
 		'after_title' => '</h3>'
 	));
+	register_sidebar(array(
+		'name' => 'Contact Page',
+		'id' => 'contact',
+		'description' => 'Right Column for Contact page',
+		'before_widget' => '<div class="block %1$s %2$s">',
+		'after_widget' => '</div><div class="e"></div></div>',
+		'before_title' => '<h3 class="title"><span class="spacer">',
+		'after_title' => '</span></h3><div class="inside">'
+	));
 	
-	$included_widgets = array( 'Social', 'Testimonials', 'Tweets', 'FBLikeBox' );
+	$included_widgets = array( 'Social', 'Tweets', 'FBLikeBox', 'Family', 'InvestorResources' );
 	foreach ( $included_widgets as $wi ) {
 		require_once( 'widgets/widget-'. strtolower($wi) .'.php' );
 		register_widget( 'ProGo_Widget_'. $wi );
@@ -826,3 +836,55 @@ function progo_product_image_forms() {
 <?php
 }
 endif;
+
+function progo_bookit_init() {	
+	// add "Family" Custom Post Type
+	register_post_type( 'progo_family',
+		array(
+			'labels' => array(
+				'name' => 'Family Members',
+				'singular_name' => 'Member',
+				'add_new_item' => 'Add New Member',
+				'edit_item' => 'Edit Member',
+				'new_item' => 'New Member',
+				'view_item' => 'View Member',
+				'search_items' => 'Search Members',
+				'not_found' =>  'No family members found',
+				'not_found_in_trash' => 'No family members found in Trash', 
+				'parent_item_colon' => '',
+				'menu_name' => 'Family'
+			),
+			'public' => true,
+			'public_queryable' => true,
+			'exclude_from_search' => true,
+			'show_in_menu' => true,
+			'menu_position' => 10,
+			'hierarchical' => false,
+			'supports' => array('title','editor','thumbnail','revisions','page-attributes')
+		)
+	);
+}
+add_action( 'init', 'progo_bookit_init' );
+
+// [family title="Meet"]
+function progo_bookit_family_shortcode( $atts ) {
+	extract( shortcode_atts( array(
+		'title' => "Meet the Family"
+	), $atts ) );
+	
+	$oot = '<div class="block family inmain"><h3 class="title"><span class="spacer">'. $title .'</span></h3><div class="inside">';
+	//echo "<p>random $num testimonial here...</p>";
+	$args = array('post_type' => 'progo_family', 'numberposts' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' );
+	$fam = get_posts($args);
+	foreach($fam as $t) {
+		$oot .= '<a href="'. get_bloginfo('url') .'/family/#'. $t->post_name .'" class="thm">'. get_the_post_thumbnail($t->ID) . $t->post_title .'</a>';
+	}
+	$oot .= '</div><div class="e"></div></div>';
+	return $oot;
+}
+add_shortcode( 'family', 'progo_bookit_family_shortcode' );
+
+function progo_bodyclasses($classes) {
+	if(is_archive() || is_single() || is_page(99)) $classes[] = 'blog';
+	return $classes;
+}

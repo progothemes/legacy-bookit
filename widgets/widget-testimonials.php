@@ -46,8 +46,7 @@ class ProGo_Widget_Testimonials extends WP_Widget {
 		$title = apply_filters( 'widget_title', empty($instance['title']) ? __('Testimonial') : $instance['title'], $instance, $this->id_base);
 		$text = apply_filters( 'widget_text', $instance['text'], $instance );
 		echo $before_widget;
-		if ( $title )
-			echo $before_title . $title . $after_title;
+		echo $before_title . $title . $after_title;
 		?><span class="lq">&ldquo;</span><?php echo nl2br(wp_kses($direct[testitxt],array('em'=>array(),'strong'=>array()))); ?>&rdquo;<br /><br />
  <div class="by"><?php echo nl2br(wp_kses($direct[testiauth],array('em'=>array(),'strong'=>array()))); ?></div>
 		<?php

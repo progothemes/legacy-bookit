@@ -46,4 +46,5 @@
             <a href="<?php bloginfo('url'); ?>/" id="logo"><?php esc_html_e( get_bloginfo( 'name' ) ); ?></a>
             <div id="book"></div>
 <?php  wp_nav_menu( array( 'container' => false, 'menu_id' => 'topnav', 'theme_location' => 'topnav' ) ); ?>
+			<a href="<?php echo get_permalink(4); ?>" class="btn now">Buy Now</a>
         </div>
