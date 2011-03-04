@@ -416,6 +416,24 @@ function progo_bookit_widgets() {
 		'before_title' => '<h3 class="title"><span class="spacer">',
 		'after_title' => '</span></h3><div class="inside">'
 	));
+	register_sidebar(array(
+		'name' => 'Cart',
+		'id' => 'cart',
+		'description' => 'Shopping Cart additional widgets',
+		'before_widget' => '<div class="block %1$s %2$s">',
+		'after_widget' => '</div><div class="e"></div></div>',
+		'before_title' => '<h3 class="title"><span class="spacer">',
+		'after_title' => '</span></h3><div class="inside">'
+	));
+	register_sidebar(array(
+		'name' => 'Book David',
+		'id' => 'bookspeaker',
+		'description' => 'Additional widget area',
+		'before_widget' => '<div class="block %1$s %2$s">',
+		'after_widget' => '</div><div class="e"></div></div>',
+		'before_title' => '<h3 class="title"><span class="spacer">',
+		'after_title' => '</span></h3><div class="inside">'
+	));
 	
 	$included_widgets = array( 'Social', 'Tweets', 'FBLikeBox', 'Family', 'InvestorResources' );
 	foreach ( $included_widgets as $wi ) {

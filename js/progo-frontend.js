@@ -25,7 +25,7 @@ function proGoTwitterCallback(twitters) {
     }).replace(/\B@([_a-z0-9]+)/ig, function(reply) {
       return  reply.charAt(0)+'<a href="http://twitter.com/'+reply.substring(1)+'">'+reply.substring(1)+'</a>';
     });
-    jQuery('.tweets p.last').before('<p>'+status+'<br /><small>'+relative_time(twitters[i].created_at)+' via '+ twitters[i].source +'</small></p>');
+    jQuery('.tweets p.last').before('<p>'+status+'<br /><a href="http://twitter.com/'+twitters[i].user.screen_name+'/status/'+twitters[i].id_str+'" target="_blank">'+relative_time(twitters[i].created_at)+'</a> via '+ twitters[i].source +'</p>');
   }
 }
 

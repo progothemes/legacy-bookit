@@ -248,7 +248,7 @@ label.cb { float:left; margin: 0 0 15px 19px; font-weight: bold; }
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
 	margin: 0 21px 16px 0
  }
- .fam a { text-decoration: none; }
+ .fam a, .block.family a { text-decoration: none; }
 
 .block.investors .inside { width: 274px; }
 .investors .headline strong { color: #399C96; }
