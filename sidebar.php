@@ -14,6 +14,9 @@
  * then the sidebar simply doesn't exist, so we'll hard-code in
  * some default sidebar stuff just in case.
  */
+if ( is_page(array(15,17)) ) {
+	dynamic_sidebar( 'bookspeaker' );
+}
 
 if ( is_page(21) ) {
 if ( ! dynamic_sidebar( 'contact' ) ) : ?>

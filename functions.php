@@ -82,19 +82,7 @@ if ( ! function_exists( 'progo_posted_on' ) ):
  * @since ProGo BookIt 1.0
  */
 function progo_posted_on() {
-	printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'progo' ),
-		'meta-prep meta-prep-author',
-		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
-			get_permalink(),
-			esc_attr( get_the_time() ),
-			get_the_date()
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
-			get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'progo' ), get_the_author() ),
-			get_the_author()
-		)
-	);
+	echo 'Posted by: <a class="url fn n" href="'. get_author_posts_url( get_the_author_meta( 'ID' ) ) .'">'. get_the_author() .'</a> on '. get_the_date();
 }
 endif;
 if ( ! function_exists( 'progo_posted_in' ) ):
@@ -435,7 +423,7 @@ function progo_bookit_widgets() {
 		'after_title' => '</span></h3><div class="inside">'
 	));
 	
-	$included_widgets = array( 'Social', 'Tweets', 'FBLikeBox', 'Family', 'InvestorResources' );
+	$included_widgets = array( 'Social', 'Tweets', 'FBLikeBox', 'Family', 'InvestorResources','BookIt' );
 	foreach ( $included_widgets as $wi ) {
 		require_once( 'widgets/widget-'. strtolower($wi) .'.php' );
 		register_widget( 'ProGo_Widget_'. $wi );

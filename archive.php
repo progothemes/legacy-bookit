@@ -14,7 +14,7 @@
 
 get_header(); ?>
         <div id="container" class="container_12">
-			<div id="main" role="main" class="grid_8">
+			<div id="main" role="main" class="grid_7">
 
 <?php
 	/* Queue the first post, that way we know
@@ -54,7 +54,7 @@ get_header(); ?>
 ?>
 
 			</div><!-- #main -->
-		</div><!-- #container -->
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('blog'); ?>
+		</div><!-- #container -->
 <?php get_footer(); ?>

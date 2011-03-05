@@ -96,8 +96,15 @@ a { color: #47A59F }
 
 /* hdr */
 #hdr { float: left; width: 100%; height: 257px; position: relative; }
-#book { display: block; width: 217px; height: 233px; background: url(images/hdr_book.jpg) no-repeat 0 0; position: absolute; top: 0; left: 6px; }
-#logo { display: block; width: 374px; height: 148px; text-indent: -999em; background: url(images/logo.png) no-repeat 0 0; position: absolute; top: 71px; left: 241px; }
+#book, #logo { display: block; width: 217px; height: 233px; text-indent: -999em; background: url(images/hdr_book.jpg) no-repeat 0 0; position: absolute; top: 0; left: 6px; }
+#logo { width: 374px; height: 148px; background-image: url(images/logo.png); top: 71px; left: 241px; }
+
+body.home { background:url(images/bg-home.jpg) no-repeat 50% 0 }
+body.home #hdr { height: 525px; }
+body.home #book { width: 298px; height: 334px; top: 78px; left: 705px; background-image: url(images/hdr_bookHome.jpg) }
+body.home #logo { top: 79px; left: 264px; background-image: url(images/logoHome.png) }
+
+#htext { position: absolute; display: block; width: 288px; top: 227px; left: 350px; color: #241f1f }
 
 ul#topnav { position: absolute; top: 0; right: 2px; float: left; height: 54px; list-style: none; margin: 0; background:url(images/hdr_li.png) repeat-y 100% 0; padding-right: 2px; }
 ul#topnav li { float: left; height: 54px; padding-left: 2px; background: url(images/hdr_li.png) repeat-y 0 0; }
@@ -106,6 +113,8 @@ ul#topnav li a { float: left; padding: 18px 24px; color: #fff; text-transform: u
 
 a.btn { float: left; width: 216px; height: 41px; padding: 17px 0 5px; background: url(images/hdr_btn.png) no-repeat 0 0; color: #285754; text-transform: uppercase; font: bold 18px/24px Arial, Helvetica, sans-serif; text-align: center; text-decoration:none }
 #hdr a.btn.now { position:absolute; left: 700px; top: 118px; }
+#hbtns { position: absolute; left: 15px; top: 425px; }
+#hbtns a.btn { margin-right: 7px; }
 /* content */
 #main, #main input, #main textarea { color: #24211F; font-size: 13px; line-height: 20px;}
 #main input.upd { border: none; background: none; padding: 0; cursor:pointer }
@@ -115,9 +124,11 @@ a.btn { float: left; width: 216px; height: 41px; padding: 17px 0 5px; background
 #main code { font-size: 13px;}
 #main dt, #main th { color: #000;}
 
-.entry-meta { color: #888; font-size: 12px;}
-.entry-meta abbr, .entry-utility abbr { border: none;}
-.entry-meta abbr:hover, .entry-utility abbr:hover { border-bottom: 1px dotted #666;}
+body.blog .post { float: left; width: 100%; }
+
+h1.entry-title, h2.entry-title, h1.entry-title a, h2.entry-title a { font-size: 25px; font-weight: bold; color: #333; text-decoration: none }
+h1.entry-title, h2.entry-title { margin-bottom: 9px }
+.entry a { text-decoration: none; }
 body.wpsc-shopping-cart .entry { margin: 17px 10px 0 0; padding: 0; }
 #main .entry p:last-child { margin-bottom: 12px;}
 .entry fieldset { border: 1px solid #e7e7e7; margin: 0 0 24px 0; padding: 24px;}
@@ -138,9 +149,9 @@ body.page .edit-link { clear: both; display: block;}
 #entry-author-info #author-avatar { background: #fff; border: 1px solid #e7e7e7; float: left; height: 60px; margin: 0 -104px 0 0; padding: 11px;}
 #entry-author-info #author-description { float: left; margin: 0 0 0 104px;}
 #entry-author-info h2 { color: #000; font-size: 100%; font-weight: bold; margin-bottom: 0;}
-.entry-utility { clear: both; color: #888; font-size: 12px; line-height: 18px;}
-.entry-meta a, .entry-utility a { color: #888;}
-.entry-meta a:hover, .entry-utility a:hover { color: #ff4b33;}
+.entry-utility { float: left; width: 100%; padding: 6px 0 10px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; font-size: 12px; line-height: 18px; margin-bottom: 20px; line-height: 20px}
+.entry-utility a { color: #47A59F; text-decoration: none }
+.entry-utility abbr { border: none;}
 #main .video-player { padding: 0;}
 
 /* images */
@@ -154,7 +165,7 @@ body.page .edit-link { clear: both; display: block;}
 #main .wp-caption p.wp-caption-text { color: #888; font-size: 12px; margin: 5px;}
 #main .wp-smiley { margin: 0;}
 #main .attachment img { /* single attachment images should be centered */ display: block; margin: 0 auto;}
-
+#main .entry-utility .alignleft, #main .entry-utility .alignright { margin: 0; }
 /* sidebars */
 #side { color: #242220 }
 #side a { text-decoration: none; }
@@ -206,6 +217,8 @@ label.cb { float:left; margin: 0 0 15px 19px; font-weight: bold; }
 .block .inside { float: left; width: 258px; padding: 20px 0 4px 25px }
 .block.testify .inside { height: 404px; padding-right: 28px; overflow-y: scroll; }
 .block .e { float: left; width: 100%; height: 11px; background: url(images/block_end.gif) no-repeat 0 0; }
+.block ul { list-style: none; margin: -11px 0 0; padding: 0; }
+#side .block ul a { color: #504A46; }
 
 .quote { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ccc; }
 .quote .by { font-style: italic; color: #46A59F; }
@@ -252,6 +265,10 @@ label.cb { float:left; margin: 0 0 15px 19px; font-weight: bold; }
 
 .block.investors .inside { width: 274px; }
 .investors .headline strong { color: #399C96; }
+.block.bookit .inside { padding: 2px 0 12px 39px; position: relative; line-height:20px; width: 237px }
+.block.bookit .inside .rq, .block.bookit .inside .lq { font-size: 28px; font-weight: bold; color: #666; line-height: 0; position: relative; top: 7px; left: 9px }
+.block.bookit .inside .lq { margin: 0 14px 0 -28px; top: 6px }
+.block.bookit a.book.button { height: 58px; width: 320px; margin: -10px 0 0 -26px; padding-top: 343px; color: #fff; font: bold 28px/32px Arial; background: url(images/bookdavid.jpg) no-repeat 0 0; text-transform:none }
 
 /* footer */
 #fwrap { float:left; width: 100%; min-width: 960px; height: 237px; background: url(images/fwrap.png) repeat-x 0 0; margin-top: 50px }

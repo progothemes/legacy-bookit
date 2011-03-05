@@ -37,7 +37,7 @@ class ProGo_Widget_InvestorResources extends WP_Widget {
 		
 		echo $before_widget;
 		if ( $title )
-			echo $before_title . $title . $after_title;
+			echo $before_title .'<a name="download-'. $this->id .'"></a>'. $title . $after_title;
 		?>
         <div>	
 		<h4 class="headline">If Life Insurance Had No Cost, How Much Would You Own?</h4><br />
