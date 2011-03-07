@@ -14,8 +14,11 @@
  * then the sidebar simply doesn't exist, so we'll hard-code in
  * some default sidebar stuff just in case.
  */
+global $post;
 if ( is_page(array(15,17)) ) {
 	dynamic_sidebar( 'bookspeaker' );
+} elseif ( is_page(4) || ( isset($post->post_parent) && ($post->post_parent == 4) ) ) {
+	dynamic_sidebar( 'cart' );
 }
 
 if ( is_page(21) ) {

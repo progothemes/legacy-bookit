@@ -52,7 +52,7 @@ if(is_front_page()) { ?>
 <h4><a href="#download-investors-4"><strong>Download a FREE Chapter</strong></a></h4>
 </div>
 <div id="hbtns">
-<a href="<?php echo get_permalink(4); ?>" class="btn">Buy The Book</a><a href="<?php echo get_permalink(4); ?>" class="btn">Download The Book</a><a href="<?php echo get_permalink(4); ?>" class="btn">Buy In Bulk</a>
+<a href="<?php echo get_permalink(4); ?>" class="btn">Buy The Book</a><a href="<?php echo get_permalink(4); ?>#download-book" class="btn">Download The Book</a><a href="<?php echo get_permalink(4); ?>#silver-package" class="btn bulk">Buy In Bulk</a>
 </div>
 <?php } else { ?>
 			<a href="<?php echo get_permalink(4); ?>" class="btn now">Buy Now</a>

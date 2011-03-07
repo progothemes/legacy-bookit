@@ -69,14 +69,7 @@ global $wp_query;
 		  	<h3 class="wpsc_category_name"><?php echo wpsc_current_category_name(); ?></h3>
 			<?php endif; ?>
 		
-			<div class="default_product_display product_view_<?php echo wpsc_the_product_id(); ?> <?php echo wpsc_category_class(); ?> group">   
-				<h2 class="prodtitle entry-title">
-							<?php if(get_option('hide_name_link') == 1) : ?>
-								<?php echo wpsc_the_product_title(); ?>
-							<?php else: ?> 
-								<a class="wpsc_product_title" href="<?php echo wpsc_the_product_permalink(); ?>"><?php echo wpsc_the_product_title(); ?></a>
-							<?php endif; ?>
-						</h2>   
+			<div class="default_product_display product_view_<?php echo wpsc_the_product_id(); ?> <?php echo wpsc_category_class(); ?> group"><a name="<?php global $post; esc_attr_e($post->post_name ); ?>"></a>
 				<?php if(wpsc_show_thumbnails()) :?>
 					<div class="imagecol" id="imagecol_<?php echo wpsc_the_product_id(); ?>">
 						<?php if(wpsc_the_product_thumbnail()) :
@@ -98,7 +91,13 @@ global $wp_query;
 					</div><!--close imagecol-->
 				<?php endif; ?>
 					<div class="productcol">
-					
+						<h3 class="prodtitle entry-title"><?php $cats = wp_get_object_terms( wpsc_the_product_id(), 'wpsc_product_category' ); echo $cats[0]->name; ?><br />
+							<?php if(get_option('hide_name_link') == 1) : ?>
+								<?php echo wpsc_the_product_title(); ?>
+							<?php else: ?> 
+								<a class="wpsc_product_title" href="<?php echo wpsc_the_product_permalink(); ?>"><?php echo wpsc_the_product_title(); ?></a>
+							<?php endif; ?>
+						</h3>
 						
 						
 						<?php							
@@ -174,11 +173,11 @@ global $wp_query;
 
 								<?php else : ?>
 									<?php if(wpsc_product_on_special()) : ?>
-										<p class="pricedisplay product_<?php echo wpsc_the_product_id(); ?>"><?php _e('Old Price', 'wpsc'); ?>: <span class="oldprice" id="old_product_price_<?php echo wpsc_the_product_id(); ?>"><?php echo wpsc_product_normal_price(); ?></span></p>
+										<span class="pricedisplay product_<?php echo wpsc_the_product_id(); ?>"><?php _e('Old Price', 'wpsc'); ?>: <span class="oldprice" id="old_product_price_<?php echo wpsc_the_product_id(); ?>"><?php echo wpsc_product_normal_price(); ?></span></span><br />
 									<?php endif; ?>
-									<p class="pricedisplay product_<?php echo wpsc_the_product_id(); ?>"><?php _e('Price', 'wpsc'); ?>: <span id='product_price_<?php echo wpsc_the_product_id(); ?>' class="currentprice pricedisplay"><?php echo wpsc_the_product_price(); ?></span></p>
+									<span class="pricedisplay product_<?php echo wpsc_the_product_id(); ?>"><?php _e('Price', 'wpsc'); ?>: <span id='product_price_<?php echo wpsc_the_product_id(); ?>' class="currentprice pricedisplay"><?php echo wpsc_the_product_price(); ?></span></span><br />
 									<?php if(wpsc_product_on_special()) : ?>
-										<p class="pricedisplay product_<?php echo wpsc_the_product_id(); ?>"><?php _e('You save', 'wpsc'); ?>: <span class="yousave" id="yousave_<?php echo wpsc_the_product_id(); ?>"><?php echo wpsc_currency_display(wpsc_you_save('type=amount'), array('html' => false)); ?>! (<?php echo wpsc_you_save(); ?>%)</span></p>
+										<span class="pricedisplay product_<?php echo wpsc_the_product_id(); ?>"><?php _e('You save', 'wpsc'); ?>: <span class="yousave" id="yousave_<?php echo wpsc_the_product_id(); ?>"><?php echo wpsc_currency_display(wpsc_you_save('type=amount'), array('html' => false)); ?>! (<?php echo wpsc_you_save(); ?>%)</span></span><br />
 									<?php endif; ?>
 									
 									<!-- multi currency code -->
@@ -187,7 +186,7 @@ global $wp_query;
                                     <?php endif; ?>
 									
 									<?php if(wpsc_show_pnp()) : ?>
-										<p class="pricedisplay"><?php _e('Shipping', 'wpsc'); ?>:<span class="pp_price"><?php echo wpsc_product_postage_and_packaging(); ?></span></p>
+										<span class="pricedisplay"><?php _e('Shipping', 'wpsc'); ?>:<span class="pp_price"><?php echo wpsc_product_postage_and_packaging(); ?></span></span><br />
 									<?php endif; ?>							
 								<?php endif; ?>
 							</div><!--close wpsc_product_price-->
@@ -212,9 +211,6 @@ global $wp_query;
 									</div><!--close wpsc_buy_button_container-->
 								<?php endif ; ?>
 							<?php endif ; ?>
-							<div class="entry-utility wpsc_product_utility">
-								<?php edit_post_link( __( 'Edit', 'wpsc' ), '<span class="edit-link">', '</span>' ); ?>
-							</div>
 						</form><!--close product_form-->
 						
 						<?php if((get_option('hide_addtocart_button') == 0) && (get_option('addtocart_or_buynow')=='1')) : ?>
@@ -222,11 +218,8 @@ global $wp_query;
 						<?php endif ; ?>
 						
 						<?php echo wpsc_product_rater(); ?>
-						
-						
 					<?php // */ ?>
 				</div><!--close productcol-->
-			<?php if(wpsc_product_on_special()) : ?><span class="sale"><?php _e('Sale', 'wpsc'); ?></span><?php endif; ?>
 		</div><!--close default_product_display-->
 
 		<?php endwhile; ?>

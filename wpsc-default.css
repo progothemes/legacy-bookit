@@ -34,12 +34,6 @@ Author URI: http://instinct.co.nz
 
 /*-----GENERAL-----*/
 
-#default_products_page_container .imagecol img, #list_view_products_page_container img, #grid_view_products_page_container img {
-	margin:0;
-	padding:0;
-	border:1px solid #ccc;
-}
-
 .wpsc_hidden{
 	display:none;
 }
@@ -87,30 +81,14 @@ Author URI: http://instinct.co.nz
 }
 
 .default_product_display {
-	margin-bottom:20px;
-	padding:10px;
 	position:relative;
-}
-
-.default_product_display .imagecol {
-	margin:0px 5px 0px 0px;
-	float:left;
-
-	position:relative;
-}
-
-.default_product_display .imagecol img.product_image {
-	background-color:#efefef;	
+	float: left;
+	width: 600px
 }
 
 .default_product_display .imagecol img.no-image, #content .default_product_display .imagecol img.no-image {
 	background-color:#EFEFEF;
 	display:block;
-}
-
-.default_product_display .productcol {
-	float:right;
-	position:relative;
 }
 
 .default_product_display h2.prodtitle, #content .default_product_display h2.prodtitle {
@@ -227,14 +205,6 @@ Author URI: http://instinct.co.nz
 	line-height:1.2em;
 	font-size:12px;
 	color:#F60;
-}
-
-.default_product_display .wpsc_product_price {
-	margin-bottom:10px;
-	font-size:16px;
-	padding:5px;
-	display:inline-block;
-	*zoom:1;
 }
 
 .default_product_display .in_stock,
@@ -430,10 +400,10 @@ table.list_productdisplay p.soldout {
 }
 
 .imagecol {
-	margin-right:5px;
-/* 	width:25%; */
+	margin-right:12px;
 	float:left;	
 	position:relative;
+	width: 246px;
 }
 
 .single_product_display .imagecol img.product_image {
@@ -448,7 +418,7 @@ table.list_productdisplay p.soldout {
 
 .productcol {
 	float:left;
-/* 	width:70%; */
+	width:326px;
 	position:relative;
 }
 
@@ -683,133 +653,8 @@ span.rating_saved{
 	margin-bottom: 3px;
 }
 
-/*-----SHOPPING CART-----*/
-.shopping-cart-wrapper {
-	line-height:1.2em;
-	position:relative;
-}
+/*-----SHOPPING CART widget-----*/
 
-.shopping-cart-wrapper span.cart_message {
-	display:block;
-	padding:5px;
-	border:1px solid #dedede;
-	margin:10px 0;	
-}
-
-.shopping-cart-wrapper .numberitems {
-	margin-bottom:5px;
-	display:block;	
-}
-
-.shopping-cart-wrapper .shoppingcart {
-	padding:5px;
-}
-
-.shopping-cart-wrapper .shoppingcart table {
-	width:100%;
-}
-
-.shopping-cart-wrapper .shoppingcart table th {
-	font-family: Arial, sans-serif;
-	padding:2px;
-}
-
-.shopping-cart-wrapper .shoppingcart table th:first-child {
-	text-align: left;
-}
-
-.shopping-cart-wrapper .shoppingcart table tbody td {	
-	padding:2px;
-	text-align:center;
-}
-
-.shopping-cart-wrapper .shoppingcart table .cart-widget-count{
-	width:70px;
-}
-
-.shopping-cart-wrapper .shoppingcart table tbody td, .shopping-cart-wrapper .shoppingcart table tbody td a {
-	text-decoration: none;
-}
-
-.shopping-cart-wrapper .shoppingcart table tbody td a:hover {
-	text-decoration: underline;
-}
-
-.shopping-cart-wrapper .remove_button {
-	background:url(wpsc-images/delete.png) no-repeat scroll 0 4px transparent;
-	width:14px;
-	text-indent:-9999px;
-	border:none;
-	outline:none;
-	*line-height:1;
-	cursor:pointer;	
-}
-
-.shopping-cart-wrapper .shoppingcart table tbody td.cart-widget-remove{
-	padding:0px;
-}
-
-.shopping-cart-wrapper .checkout-shipping,
-.shopping-cart-wrapper .checkout-tax,
-.widget_wpsc_shopping_cart #cart-widget-links {
-	text-align: right;
-	padding: 0px 6px 0px 0px;
-}
-
-.widget_wpsc_shopping_cart .checkout-total, .widget_wpsc_shopping_cart .pluspostagetax {
-	text-align:right;
-	font-weight:bold;
-}
-
-.shopping-cart-wrapper .shoppingcart table tbody td.product-name{
-	text-align: left;
-	max-width: 90px;
-	word-wrap: break-word;
-	overflow: hidden;
-}
-
-.widget_wpsc_shopping_cart .cart-widget-total td {
-	border-top:solid 2px #000;
-	padding: 5px 6px 5px 5px;
-}
-
-.widget_wpsc_shopping_cart tr.cart-widget-shipping td {
-	border-top:1px solid #000;
-}
-
-.widget_wpsc_shopping_cart .shoppingcart{
-	position:relative;
-}
-
-.shopping-cart-wrapper a.emptycart:link, .shopping-cart-wrapper a.emptycart:visited {
-	text-decoration:none;
-	color:#666;
-	font-size:11px;
-}
-
-.shopping-cart-wrapper .gocheckout:active {
-	border:1px solid #ccc;
-}
-
-.shopping-cart-wrapper .empty {
-	margin-top:10px;	
-}
-/*
-
-.shopping-cart-wrapper a.visitshop:link, .shopping-cart-wrapper a.visitshop:visited {
-	text-decoration:underline;
-	font-size:12px;
-	color:#006699;
-}
-
-.shopping-cart-wrapper .empty {
-	margin-bottom:5px;
-}
-*/
-
-.shopping-cart-wrapper a.visitshop:hover, .shopping-cart-wrapper a.visitshop:active {
-	text-decoration:none;
-}
 
 /*-----CHECKOUT PAGE-----*/
 #checkout_page_container {

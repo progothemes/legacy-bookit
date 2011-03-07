@@ -104,17 +104,18 @@ body.home #hdr { height: 525px; }
 body.home #book { width: 298px; height: 334px; top: 78px; left: 705px; background-image: url(images/hdr_bookHome.jpg) }
 body.home #logo { top: 79px; left: 264px; background-image: url(images/logoHome.png) }
 
-#htext { position: absolute; display: block; width: 288px; top: 227px; left: 350px; color: #241f1f }
+#htext { position: absolute; display: block; width: 288px; top: 225px; left: 352px; color: #241f1f }
 
 ul#topnav { position: absolute; top: 0; right: 2px; float: left; height: 54px; list-style: none; margin: 0; background:url(images/hdr_li.png) repeat-y 100% 0; padding-right: 2px; }
 ul#topnav li { float: left; height: 54px; padding-left: 2px; background: url(images/hdr_li.png) repeat-y 0 0; }
 ul#topnav li a { float: left; padding: 18px 24px; color: #fff; text-transform: uppercase; font-size: 12px; font-weight: bold; text-decoration:none }
-#topnav li.current-menu-item a, body.blog #topnav li#menu-item-34 a, #topnav li a:hover { background: url(images/hdr_on.png) repeat-x 0 0; }
+#topnav li.current-menu-item a, body.blog #topnav li#menu-item-34 a, #topnav li.current-page-ancestor a, #topnav li a:hover { background: url(images/hdr_on.png) repeat-x 0 0; }
 
 a.btn { float: left; width: 216px; height: 41px; padding: 17px 0 5px; background: url(images/hdr_btn.png) no-repeat 0 0; color: #285754; text-transform: uppercase; font: bold 18px/24px Arial, Helvetica, sans-serif; text-align: center; text-decoration:none }
 #hdr a.btn.now { position:absolute; left: 700px; top: 118px; }
 #hbtns { position: absolute; left: 15px; top: 425px; }
-#hbtns a.btn { margin-right: 7px; }
+#hbtns a.btn { margin-right: 7px; padding-bottom: 6px; width: 320px; background-image: url(images/buttons.png); font-size: 20px }
+#hbtns a.btn.bulk { width: 270px; background-position: 100% 0; }
 /* content */
 #main, #main input, #main textarea { color: #24211F; font-size: 13px; line-height: 20px;}
 #main input.upd { border: none; background: none; padding: 0; cursor:pointer }
@@ -144,7 +145,7 @@ body.wpsc-shopping-cart .entry { margin: 17px 10px 0 0; padding: 0; }
 .page-link { color: #000; font-weight: bold; margin: 0 0 22px 0; word-spacing: 0.5em;}
 .page-link a:link, .page-link a:visited { background: #f1f1f1; color: #333; font-weight: normal; padding: 0.5em 0.75em; text-decoration: none;}
 .page-link a:active, .page-link a:hover { color: #ff4b33;}
-body.page .edit-link { clear: both; display: block;}
+body.page .edit-link { display: block }
 #entry-author-info { background: #f2f7fc; border-top: 4px solid #000; clear: both; font-size: 14px; line-height: 20px; margin: 24px 0; overflow: hidden; padding: 18px 20px;}
 #entry-author-info #author-avatar { background: #fff; border: 1px solid #e7e7e7; float: left; height: 60px; margin: 0 -104px 0 0; padding: 11px;}
 #entry-author-info #author-description { float: left; margin: 0 0 0 104px;}
@@ -215,6 +216,7 @@ label.cb { float:left; margin: 0 0 15px 19px; font-weight: bold; }
 .block h3.title { float: left; width: 100%; padding: 10px 0; margin: 0; font: 18px/23px Arial, Helvetica, sans-serif; text-transform:uppercase; color: #fff; background: url(images/block_top.png) no-repeat 0 0; }
 .block h3.title .spacer { float: left; margin: 0 25px; }
 .block .inside { float: left; width: 258px; padding: 20px 0 4px 25px }
+.block.testify h3.title { background-image: url(images/block_top_test.png); padding: 17px 0 15px }
 .block.testify .inside { height: 404px; padding-right: 28px; overflow-y: scroll; }
 .block .e { float: left; width: 100%; height: 11px; background: url(images/block_end.gif) no-repeat 0 0; }
 .block ul { list-style: none; margin: -11px 0 0; padding: 0; }
@@ -269,6 +271,10 @@ label.cb { float:left; margin: 0 0 15px 19px; font-weight: bold; }
 .block.bookit .inside .rq, .block.bookit .inside .lq { font-size: 28px; font-weight: bold; color: #666; line-height: 0; position: relative; top: 7px; left: 9px }
 .block.bookit .inside .lq { margin: 0 14px 0 -28px; top: 6px }
 .block.bookit a.book.button { height: 58px; width: 320px; margin: -10px 0 0 -26px; padding-top: 343px; color: #fff; font: bold 28px/32px Arial; background: url(images/bookdavid.jpg) no-repeat 0 0; text-transform:none }
+
+.block.widget_wpsc_shopping_cart .inside { padding: 10px; width: 295px; }
+
+#main input.wpsc_buy_button { float: left; width: 168px; height: 45px; border: none; cursor:pointer; font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight:bold; color: #fff; background:url(images/buybutton.png) no-repeat 0 0; text-transform:uppercase }
 
 /* footer */
 #fwrap { float:left; width: 100%; min-width: 960px; height: 237px; background: url(images/fwrap.png) repeat-x 0 0; margin-top: 50px }
