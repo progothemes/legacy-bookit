@@ -156,32 +156,13 @@ function progo_admin_menu_cleanup() {
 	
 	add_menu_page( 'Site Settings', 'ProGo Themes', 'edit_theme_options', 'progo_site_settings', 'progo_site_settings_page', get_bloginfo( 'template_url' ) .'/images/logo_menu.png', 5 );
 	add_submenu_page( 'progo_site_settings', 'Store Settings', 'Store Settings', 'edit_theme_options', 'wpsc-settings', 'options-general.php' );
-	add_submenu_page( 'progo_site_settings', __( 'Store Sales', 'wpsc' ), __( 'Store Sales', 'wpsc' ), 'administrator', 'wpsc-sales-logs', 'wpsc_display_sales_logs' );
-	add_submenu_page( 'progo_site_settings', __( 'Store Upgrades', 'wpsc' ), __( 'Store Upgrades', 'wpsc' ), 'administrator', 'wpsc-upgrades', 'wpsc_display_upgrades_page' );
 	add_submenu_page( 'progo_site_settings', 'Menus', 'Menus', 'edit_theme_options', 'nav-menus.php' );
 	
 	$submenu['progo_site_settings'][0][0] = 'Site Settings';
 	
-	// and remove STORE SALES and STORE UPGRADES from DASHBOARD menu?
-	if ( isset( $submenu['index.php'] ) ) {
-		foreach ( $submenu['index.php'] as $ind => $sub ) {
-			// sub[0] could change language so check the callback fn instead
-			if ( in_array( $sub[2], array( 'wpsc-sales-logs', 'wpsc-ugrades' ) ) ) {
-				unset($submenu['index.php'][$ind]);
-			}
-		}
-	}
 	// add extra line
 	$menu[6] = $menu[4];
 	
-	/*
-	// and lets move MEDIA to after PRODUCTS
-	$menu[50] = $menu[10];
-	unset($menu[10]);
-	// and lets move PRODUCTS to before PAGES
-	$menu[10] = $menu[26];
-	unset($menu[26]);
-	*/
 //	wp_die('<pre>'. print_r($menu,true) .'</pre>');
 }
 endif;
@@ -479,6 +460,13 @@ function progo_add_scripts() {
 		wp_register_script( 'progo', get_bloginfo('template_url') .'/js/progo-frontend.js', array('jquery'), '1.0' );
 		wp_enqueue_script( 'progo' );
 		do_action('progo_frontend_scripts');
+		
+		// check for SHARETHIS
+		$stwidg = get_option('st_widget');
+		if($stwidg != '' && is_page(5) ) {
+			$stwidg = '';
+			update_option('st_widget',$widget);
+		}
 	}
 }
 endif;

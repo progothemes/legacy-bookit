@@ -723,16 +723,14 @@ span.rating_saved{
 background-color: #f5f5f5;
 }
 
-#checkout_page_container .total_price td.wpsc_totals{
+#checkout_page_container .wpsc_checkout_table h4 {
+	margin: 20px 0 5px
 
 }
 
 #checkout_page_container .wpsc_make_purchase{
-	bottom: 20px;
-	float: right;
-	position: relative;
+	margin-top: 20px;
 }
-
 #checkout_page_container .total_price.total_shipping td{
 	border:none;
 	font-weight: normal;

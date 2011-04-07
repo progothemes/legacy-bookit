@@ -17,7 +17,7 @@
 global $post;
 if ( is_page(array(15,17)) ) {
 	dynamic_sidebar( 'bookspeaker' );
-} elseif ( is_page(4) || ( isset($post->post_parent) && ($post->post_parent == 4) ) ) {
+} elseif ( is_page(array(4,5)) || ( isset($post->post_parent) && ($post->post_parent == 4) ) ) {
 	dynamic_sidebar( 'cart' );
 }
 
@@ -25,7 +25,7 @@ if ( is_page(21) ) {
 if ( ! dynamic_sidebar( 'contact' ) ) : ?>
 <p>by default we want some widgets to show up...</p>
 <?php endif; // end primary widget area
-} else {
+} elseif(!is_page(5)) {
 if ( ! dynamic_sidebar( 'sidebar' ) ) : ?>
 <p>by default we want some widgets to show up...</p>
 <?php endif; // end primary widget area
